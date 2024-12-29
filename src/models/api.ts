@@ -1,4 +1,4 @@
-export declare namespace API {
+export declare namespace Api {
     interface ItemBaseProperties {
         [key: string]: string | number;
     }
@@ -20,6 +20,5 @@ export declare namespace API {
         properties: ItemPropertiesFirstType | ItemPropertiesSecondType;
     }
 
-    type ItemArray = Item[];
     type Image = any;
 }

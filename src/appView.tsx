@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import API from "./services/api";
 import ItemTable from "./views/itemTable";
+import store from "./store";
+import { ActionTypes } from "./ops/actions";
 
 const App = (props) => {
-
-  const test = async () => {
-    console.log(await API.image.get("guid1"));
-    console.log(await API.items.get());
-  }
-
-  test();
+  useEffect(() => {
+    store.dispatch({
+      type: ActionTypes.APP_INIT,
+      payload: null
+  });
+  }, [])
 
   const renderView = () => {
     return (

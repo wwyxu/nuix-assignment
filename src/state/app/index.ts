@@ -1,13 +1,17 @@
 import { ActionTypes } from 'src/ops/actions';
 
-const initialState = {
+export interface State {
+    isLoaded: boolean;
+}
+
+const initialState: State = {
     isLoaded: false,
 };
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.SET_LOADED:
-            return { ...state, isLoaded: true};
+            return { ...state, isLoaded: payload};
         default:
             return state;
     }

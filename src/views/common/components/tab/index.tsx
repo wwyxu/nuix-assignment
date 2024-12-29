@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 interface Tab {
-    id: string;
+    id?: string | number;
+    guid?: string | number;
     label: string;
     content: React.ReactNode;
 }
@@ -19,8 +20,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
             <div className="flex border-b border-gray-200">
                 {tabs.map((tab) => (
                     <button
-                        key={tab.id}
-                        onClick={() => onTabClick(tab.id)}
+                        key={tab.id || tab.guid}
+                        onClick={() => onTabClick(tab.id || tab.guid)}
                     >
                         {tab.label}
                     </button>
@@ -31,10 +32,10 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
             <div>
                 {tabs.map((tab) => (
                     <div
-                        key={tab.id}
-                        className={`${activeTab === tab.id ? 'block' : 'hidden'}`}
+                        key={tab.id || tab.guid}
+                        className={`${(activeTab === tab.id || activeTab === tab.guid) ? 'block' : 'hidden'}`}
                         role="tabpanel"
-                        aria-labelledby={`tab-${tab.id}`}
+                        aria-labelledby={`tab-${(tab.id || tab.guid)}`}
                     >
                         {tab.content}
                     </div>
