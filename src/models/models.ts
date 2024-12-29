@@ -1,7 +1,18 @@
 import { ItemDetailsTabValue } from "src/constants";
 
 export declare namespace Models {
-    interface selectedItemTabs {
+    interface SelectedItemTabs {
         [key: string]: ItemDetailsTabValue;
     }
+
+    interface ItemsTable {
+        guid: string;
+        name: string;
+        path: string;
+    }
+
+    type ItemsTableArray = ItemsTable[];
+
+    type ItemProperties = Record<string, string | number>;
+    type ItemsPropertiesArray = ItemProperties[];
 }

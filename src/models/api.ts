@@ -20,5 +20,7 @@ export declare namespace Api {
         properties: ItemPropertiesFirstType | ItemPropertiesSecondType;
     }
 
+    type ItemsArray = Item[];
+
     type Image = any;
 }

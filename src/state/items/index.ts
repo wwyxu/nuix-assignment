@@ -1,14 +1,17 @@
+import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray } from 'src/mappers';
 import { Api, Models } from 'src/models';
 import { ActionTypes } from 'src/ops/actions';
 
 export type State = {
-    items: Api.Item[];
+    itemsTable: Models.ItemsTableArray[];
+    itemsProperties: Models.ItemsPropertiesArray[];
     selectedItem: string;
-    selectedItemsTabs: Models.selectedItemTabs;
+    selectedItemsTabs: Models.SelectedItemTabs;
 };
 
 const initialState: State = {
-    items: [],
+    itemsTable: [],
+    itemsProperties: [],
     selectedItem: null,
     selectedItemsTabs: {},
 };
@@ -16,7 +19,10 @@ const initialState: State = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
         case ActionTypes.SET_ITEMS:
-            return { ...state, items: payload }
+            const itemsTable = convertItemsArrayToItemsTableArray(payload);
+            const itemsProperties = convertItemsArrayToItemsPropertiesArray(payload);
+
+            return { ...state, itemsTable, itemsProperties }
         default:
             return state;
     }

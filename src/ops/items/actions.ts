@@ -1,4 +1,5 @@
 import { Api } from "src/models";
+import { ActionCreatorWithPayload } from 'src/utils/types';
 
 export const SET_ITEMS: 'SET_ITEMS' = 'SET_ITEMS';
 export const SELECT_ITEM: 'SELECT_ITEM' = 'SELECT_ITEM';
@@ -8,7 +9,7 @@ export interface SetItems {
 	payload: Api.Item;
 }
 
-export const setItems = payload => ({
+export const setItems: ActionCreatorWithPayload<SetItems> = payload => ({
     type: SET_ITEMS,
     payload
 });
@@ -18,7 +19,7 @@ export interface SelectItem {
     payload: string
 }
 
-export const selectItem = payload => ({
+export const selectItem: ActionCreatorWithPayload<SelectItem> = payload => ({
     type: SELECT_ITEM,
     payload
 })
