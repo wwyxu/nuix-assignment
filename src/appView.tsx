@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import API from "./services/api";
+import ItemTable from "./views/itemTable";
 
 const App = (props) => {
 
@@ -14,14 +14,16 @@ const App = (props) => {
 
   const renderView = () => {
     return (
-      <></>
+      <>
+        <ItemTable />
+      </>
     )
   }
 
   return (
-    <BrowserRouter>
+    <>
       {renderView()}
-    </BrowserRouter>
+    </>
   );
 }
 

@@ -1,12 +1,12 @@
 import { baseUrl } from 'src/constants';
 import axios, { AxiosResponse } from 'axios';
-import { Models } from 'src/models';
+import { API } from 'src/models';
 
 const route = "items";
 
 export default {
-    get: (): Promise<AxiosResponse<Models.Image>> =>
-        axios.get<Models.Image>(
+    get: (): Promise<AxiosResponse<API.Image>> =>
+        axios.get<API.Image>(
             `${baseUrl}/${route}`
         ),
 };
