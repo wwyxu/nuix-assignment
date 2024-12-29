@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { ActionTypes } from "./ops/actions";
+import { ActionTypes } from "src/ops/actions";
 import { AppState } from 'src/state';
-import View from './appView';
-import store from "./store";
+import View from 'src/appView';
+import store from "src/store";
 
 const mapStateToProps = (state: AppState) => ({
 });

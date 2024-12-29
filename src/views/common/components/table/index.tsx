@@ -9,7 +9,7 @@ interface TableRow {
 interface TableProps {
   header: string[];
   rows: TableRow[];
-  rowClick: (row: TableRow) => void;
+  rowClick: (index: number) => void;
 }
 
 const Table: React.FC<TableProps> = ({ header, rows, rowClick }) => {
@@ -23,20 +23,22 @@ const Table: React.FC<TableProps> = ({ header, rows, rowClick }) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr
-            key={row.id || row.guid}
-            onClick={() => rowClick(row)}
-          >
-            {header.map((key) => (
-              <td
-                key={key}
-              >
-                {row[key]}
-              </td>
-            ))}
-          </tr>
-        ))}
+        {rows.map((row, index) => {
+          return (
+            <tr
+              key={row.id || row.guid}
+              onClick={() => {rowClick(index)}}
+            >
+              {Object.keys(row).map((key) => (
+                <td
+                  key={key}
+                >
+                  {row[key]}
+                </td>
+              ))}
+            </tr>
+          )
+        })}
       </tbody>
     </table>
   );

@@ -16,7 +16,7 @@ export const setItems: ActionCreatorWithPayload<SetItems> = payload => ({
 
 export interface SelectItem {
     type: typeof SELECT_ITEM;
-    payload: string
+    payload: number
 }
 
 export const selectItem: ActionCreatorWithPayload<SelectItem> = payload => ({

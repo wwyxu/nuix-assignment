@@ -4,3 +4,5 @@ export enum ItemDetailsTabValue {
 	Properties = 'Properties',
 	Image = 'Image',
 }
+
+export const itemTableHeader = ['GUID', 'Name', 'Path'];
