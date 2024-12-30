@@ -1,18 +1,18 @@
-import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray } from 'src/mappers';
+import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray, updateSelectedItemTabs } from 'src/mappers';
 import { Models } from 'src/models';
 import { ActionTypes } from 'src/ops/actions';
 
 export type State = {
-    itemsTable: Models.ItemsTableArray[];
-    itemsProperties: Models.ItemsPropertiesArray[];
-    selectedItem: number;
+    itemsTable: Models.ItemsTableArray;
+    itemsProperties: Models.ItemsPropertiesArray;
+    selectedItemIndex: number;
     selectedItemsTabs: Models.SelectedItemTabs;
 };
 
 const initialState: State = {
     itemsTable: [],
     itemsProperties: [],
-    selectedItem: null,
+    selectedItemIndex: null,
     selectedItemsTabs: {},
 };
 
@@ -24,8 +24,18 @@ export default (state = initialState, { type, payload }) => {
 
             return { ...state, itemsTable, itemsProperties }
         case ActionTypes.SELECT_ITEM:
+            const selectedItemIndex = payload;
 
-            return { ...state, selectedItem: payload}
+            const selectedItemsTabs = updateSelectedItemTabs(
+                state.selectedItemsTabs,
+                state.itemsTable[selectedItemIndex].guid,
+            )
+
+            return { ...state, selectedItemIndex, selectedItemsTabs }
+        case ActionTypes.UPDATE_ITEM_TAB:
+            if (!state.selectedItemIndex || !state.itemsTable[state.selectedItemIndex]) return { ...state };
+
+            return { ...state, selectedItemsTabs: { ...state.selectedItemsTabs, [state.itemsTable[state.selectedItemIndex].guid]: payload } }
         default:
             return state;
     }

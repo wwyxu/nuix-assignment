@@ -5,7 +5,8 @@ import app, {
 
 import items, {
     SET_ITEMS,
-    SELECT_ITEM
+    SELECT_ITEM,
+    UPDATE_ITEM_TAB
 } from './items/actions';
 
 export const ActionTypes = {
@@ -13,7 +14,8 @@ export const ActionTypes = {
     SET_LOADED,
 
     SET_ITEMS,
-    SELECT_ITEM
+    SELECT_ITEM,
+    UPDATE_ITEM_TAB
 };
 
 export default {

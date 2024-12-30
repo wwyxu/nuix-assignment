@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import ItemsTable from "./views/itemsTable";
+import ItemsDetails from "./views/itemDetails/view";
 import { ActionTypes } from "./ops/actions";
 
 const App = (props) => {
@@ -12,6 +13,7 @@ const App = (props) => {
     return (
       <>
         <ItemsTable />
+        <ItemsDetails />
       </>
     )
   }

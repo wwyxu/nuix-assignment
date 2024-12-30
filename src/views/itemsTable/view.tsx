@@ -1,13 +1,13 @@
 import React from "react";
 import Table from "../common/components/table";
-import { itemTableHeader } from "src/constants";
+import { itemsTableHeader } from "src/constants";
 
-const ItemTable = (props) => {
+const ItemsTable = (props) => {
     return (
         <>
-            <Table header={itemTableHeader} rows={props.itemsTable} rowClick={props.selectItem}></Table>
+            <Table header={itemsTableHeader} rows={props.itemsTable} rowClick={props.selectItem} />
         </>
     );
 }
 
-export default ItemTable;
+export default ItemsTable;

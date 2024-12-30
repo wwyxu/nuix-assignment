@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface Tab {
-    id?: string | number;
-    guid?: string | number;
     label: string;
-    content: React.ReactNode;
+    value: string;
 }
 
 interface TabsProps {
     tabs: Tab[];
-    activeTab?: string;
-    onTabClick?: any;
+    activeTab: string;
+    onTabClick: any;
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
@@ -20,8 +18,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
             <div className="flex border-b border-gray-200">
                 {tabs.map((tab) => (
                     <button
-                        key={tab.id || tab.guid}
-                        onClick={() => onTabClick(tab.id || tab.guid)}
+                        className={activeTab == tab.value ? "selected-tab" : ""}
+                        key={tab.value}
+                        onClick={() => onTabClick(tab.value)}
                     >
                         {tab.label}
                     </button>
@@ -29,7 +28,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
             </div>
 
             {/* Tab Content */}
-            <div>
+            {/* <div>
                 {tabs.map((tab) => (
                     <div
                         key={tab.id || tab.guid}
@@ -40,7 +39,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {
                         {tab.content}
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 }
