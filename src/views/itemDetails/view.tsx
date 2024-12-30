@@ -1,10 +1,12 @@
 import React from "react";
-import ItemsTab from "./itemTab";
+import ItemTab from "./itemTab";
+import ItemPanel from "./ItemPanel";
 
 const ItemsDetails = (props) => {
     return (
         <>
-            <ItemsTab />
+            <ItemTab />
+            <ItemPanel />
         </>
     );
 }

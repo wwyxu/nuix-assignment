@@ -6,11 +6,13 @@ const itemsTable = createSelector(self, data => data.itemsTable);
 const itemsProperties = createSelector(self, data => data.itemsProperties);
 const selectedItemIndex = createSelector(self, data => data.selectedItemIndex);
 const selectedItemsTabs = createSelector(self, data => data.selectedItemsTabs);
+const activeTab = createSelector(self, data => data.activeTab);
 
 export default {
     self,
     itemsTable,
     itemsProperties,
     selectedItemIndex,
-    selectedItemsTabs
+    selectedItemsTabs,
+    activeTab
 };

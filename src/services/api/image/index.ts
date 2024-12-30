@@ -7,6 +7,8 @@ const route = "image";
 export default {
     get: (imageName: String): Promise<AxiosResponse<Api.Image>> =>
         axios.get<Api.Image>(
-            `${baseUrl}/${route}/${imageName}`
+            `${baseUrl}/${route}/${imageName}`, {
+            responseType: "arraybuffer"
+        }
         ),
 };

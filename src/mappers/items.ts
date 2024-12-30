@@ -1,4 +1,3 @@
-import { ItemDetailsTabValue } from "src/constants";
 import { Api, Models } from "src/models";
 
 export const convertItemsArrayToItemsTableArray = (items: Api.ItemsArray): Models.ItemsTableArray => {
@@ -41,18 +40,4 @@ export const convertItemsArrayToItemsPropertiesArray = (items: Api.ItemsArray): 
         console.error('Error converting items to properties:', error);
         return [];
     }
-}
-
-export const updateSelectedItemTabs = (
-    currentTabs: Models.SelectedItemTabs,
-    itemGuid: string,
-): Models.SelectedItemTabs => {
-    if (!currentTabs[itemGuid]) {
-        return {
-            ...currentTabs,
-            [itemGuid]: ItemDetailsTabValue.Properties
-        };
-    }
-
-    return currentTabs;
 }

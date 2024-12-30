@@ -1,12 +1,14 @@
-import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray, updateSelectedItemTabs } from 'src/mappers';
+import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray } from 'src/mappers';
 import { Models } from 'src/models';
 import { ActionTypes } from 'src/ops/actions';
+import { updateSelectedItemTabs } from './mappers';
 
 export type State = {
     itemsTable: Models.ItemsTableArray;
     itemsProperties: Models.ItemsPropertiesArray;
     selectedItemIndex: number;
     selectedItemsTabs: Models.SelectedItemTabs;
+    activeTab: Models.ItemTabValue | null;
 };
 
 const initialState: State = {
@@ -14,6 +16,7 @@ const initialState: State = {
     itemsProperties: [],
     selectedItemIndex: null,
     selectedItemsTabs: {},
+    activeTab: null
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -25,17 +28,20 @@ export default (state = initialState, { type, payload }) => {
             return { ...state, itemsTable, itemsProperties }
         case ActionTypes.SELECT_ITEM:
             const selectedItemIndex = payload;
+            const currentGuid = state.itemsTable[selectedItemIndex].guid;
 
             const selectedItemsTabs = updateSelectedItemTabs(
                 state.selectedItemsTabs,
-                state.itemsTable[selectedItemIndex].guid,
+                currentGuid,
             )
 
-            return { ...state, selectedItemIndex, selectedItemsTabs }
+            return { ...state, selectedItemIndex, selectedItemsTabs, activeTab: selectedItemsTabs[currentGuid] }
         case ActionTypes.UPDATE_ITEM_TAB:
-            if (!state.selectedItemIndex || !state.itemsTable[state.selectedItemIndex]) return { ...state };
+            if (typeof state.selectedItemIndex === "number" && !state.itemsTable[state.selectedItemIndex]) {
+                return { ...state }
+            };
 
-            return { ...state, selectedItemsTabs: { ...state.selectedItemsTabs, [state.itemsTable[state.selectedItemIndex].guid]: payload } }
+            return { ...state, selectedItemsTabs: { ...state.selectedItemsTabs, [state.itemsTable[state.selectedItemIndex].guid]: payload }, activeTab: payload }
         default:
             return state;
     }
