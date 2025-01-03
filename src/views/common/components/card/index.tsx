@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./styles.css";
+
 interface CardProps {
   data: Record<string, any>;
 }
@@ -7,11 +9,11 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   data,
 }) => (
-  <div>
+  <div className="custom-card">
     {Object.entries(data).map(([key, value]) => (
       <div key={key}>
         <span>
-          {key}:
+          {`${key}: `}
         </span>
         <span>
           {typeof value === 'object'

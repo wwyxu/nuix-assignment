@@ -37,7 +37,7 @@ export default (state = initialState, { type, payload }) => {
 
             return { ...state, selectedItemIndex, selectedItemsTabs, activeTab: selectedItemsTabs[currentGuid] }
         case ActionTypes.UPDATE_ITEM_TAB:
-            if (typeof state.selectedItemIndex === "number" && !state.itemsTable[state.selectedItemIndex]) {
+            if (!state.itemsTable[state.selectedItemIndex]) {
                 return { ...state }
             };
 

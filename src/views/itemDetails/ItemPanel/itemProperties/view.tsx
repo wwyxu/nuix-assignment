@@ -3,9 +3,7 @@ import Card from "src/views/common/components/card";
 
 const ItemProperties = (props) => {
     return (
-        <>
-            <Card data={props.itemsTable[props.selectedItemIndex] || {}} />
-        </>
+        <Card data={props.itemsTable[props.selectedItemIndex] || {}} />
     );
 }
 

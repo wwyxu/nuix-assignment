@@ -10,7 +10,7 @@ const ItemImage = (props) => {
     }, [props.selectedItemIndex])
 
     async function getImage() {
-        if (typeof props.selectedItemIndex === "number") {
+        if (props.itemsTable && props.itemsTable[props.selectedItemIndex] && props.itemsTable[props.selectedItemIndex].guid) {
             const response = await API.image.get(props.itemsTable[props.selectedItemIndex].guid);
 
             setImage(Buffer.from(response.data, 'binary').toString('base64'))

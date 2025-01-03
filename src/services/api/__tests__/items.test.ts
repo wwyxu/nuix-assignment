@@ -18,5 +18,3 @@ describe('Items API', () => {
         expect(firstItem).toHaveProperty('properties');
     });
 });
-
-export { };

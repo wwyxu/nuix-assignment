@@ -10,7 +10,4 @@ const mapStateToProps = (state: AppState) => ({
     activeTab: data.items.activeTab(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ItemPanel);
+export default connect(mapStateToProps)(ItemPanel);

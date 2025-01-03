@@ -1,0 +1,10 @@
+.item-details {
+    width: 600px;
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .item-details {
+        width: 100%;
+    }
+}

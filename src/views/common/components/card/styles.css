@@ -1,0 +1,32 @@
+.custom-card {
+    padding: 16px;
+    height: calc(100% - 50px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.custom-card>div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border: none;
+    box-shadow: none;
+}
+
+.custom-card>div:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.custom-card>*>span:first-child {
+    font-weight: 500;
+    color: var(--unselected-color);
+}
+
+.custom-card>*>span:last-child {
+    color: var(--hover-color);
+    max-width: 60%;
+    word-break: break-word;
+    margin-left: auto;
+}

@@ -8,7 +8,4 @@ const mapStateToProps = (state: AppState) => ({
     selectedItemIndex: data.items.selectedItemIndex(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ItemProperties);
+export default connect(mapStateToProps)(ItemProperties);

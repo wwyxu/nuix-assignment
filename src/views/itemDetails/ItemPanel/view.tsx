@@ -13,6 +13,7 @@ const ItemsPanel = (props) => {
             return <ItemImage />
         }
 
+        return null;
     }
 
     return (

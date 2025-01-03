@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import ItemsTable from "./views/itemsTable";
-import ItemsDetails from "./views/itemDetails/view";
+import ItemsDetails from "./views/itemDetails";
+
+import "./App.css";
 
 const App = (props) => {
   useEffect(() => {
@@ -11,8 +12,10 @@ const App = (props) => {
   const renderView = () => {
     return (
       <>
-        <ItemsTable />
-        <ItemsDetails />
+        <div className="items-container">
+          <ItemsTable />
+          <ItemsDetails />
+        </div>
       </>
     )
   }

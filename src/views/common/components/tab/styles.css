@@ -1,0 +1,29 @@
+.tab>button {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    color: var(--unselected-color);
+    transition: all 0.2s;
+    cursor: pointer;
+    outline: none;
+}
+
+.tab>button:focus {
+    outline: none;
+}
+
+.tab>button:hover {
+    color: var(--hover-color);
+    background: #f5f5f5;
+    border-bottom: 2px solid #757575;
+}
+
+.tab>.selected-tab,
+.tab>.selected-tab:hover {
+    color: var(--nuix-blue);
+    border-bottom: 2px solid var(--nuix-blue);
+    background: var(--selected-element-bg);
+    font-weight: 600;
+}

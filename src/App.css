@@ -1,0 +1,20 @@
+:root {
+    --nuix-blue: #2563eb;
+    --selected-element-bg: #f8faff;
+
+    --border-color: #ddd;
+
+    --hover-color: #333;
+
+    --unselected-color: #666;
+}
+
+.items-container {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .items-container {
+        flex-direction: column;
+    }
+}

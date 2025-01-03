@@ -7,16 +7,18 @@ import store from "src/store";
 
 const mapStateToProps = (state: AppState) => ({
     itemsTable: data.items.itemsTable(state),
+    selectedItemIndex: data.items.selectedItemIndex(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
     selectItem: (itemIndex: number) => {
         dispatch(
-        store.dispatch({
-            type: ActionTypes.SELECT_ITEM,
-            payload: itemIndex
-        })
-    )},
+            store.dispatch({
+                type: ActionTypes.SELECT_ITEM,
+                payload: itemIndex
+            })
+        )
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsTable);
