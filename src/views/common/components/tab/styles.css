@@ -16,7 +16,7 @@
 
 .tab>button:hover {
     color: var(--hover-color);
-    background: #f5f5f5;
+    background: var(--background-color);
     border-bottom: 2px solid #757575;
 }
 

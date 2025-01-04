@@ -9,21 +9,11 @@ const App = (props) => {
     props.initApp()
   }, [])
 
-  const renderView = () => {
-    return (
-      <>
-        <div className="items-container">
-          <ItemsTable />
-          <ItemsDetails />
-        </div>
-      </>
-    )
-  }
-
   return (
-    <>
-      {renderView()}
-    </>
+    <div className="items-container">
+      <ItemsTable />
+      <ItemsDetails />
+    </div>
   );
 }
 

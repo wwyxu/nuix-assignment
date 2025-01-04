@@ -16,5 +16,5 @@ export declare namespace Models {
     type ItemProperties = Record<string, string | number>;
     type ItemsPropertiesArray = ItemProperties[];
 
-    type ItemTabValue = ItemDetailsTabValue.Properties | ItemDetailsTabValue.Image;
+    type ItemTabValue = ItemDetailsTabValue.Properties | ItemDetailsTabValue.Image | null;
 }

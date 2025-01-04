@@ -1,4 +1,4 @@
-import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray } from 'src/mappers';
+import { convertItemsArrayToItemsPropertiesArray, convertItemsArrayToItemsTableArray } from './mappers';
 import { Models } from 'src/models';
 import { ActionTypes } from 'src/ops/actions';
 import { updateSelectedItemTabs } from './mappers';
@@ -8,7 +8,7 @@ export type State = {
     itemsProperties: Models.ItemsPropertiesArray;
     selectedItemIndex: number;
     selectedItemsTabs: Models.SelectedItemTabs;
-    activeTab: Models.ItemTabValue | null;
+    activeTab: Models.ItemTabValue;
 };
 
 const initialState: State = {

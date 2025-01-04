@@ -10,7 +10,7 @@ interface Tab {
 interface TabsProps {
     tabs: Tab[];
     activeTab: string;
-    onTabClick: any;
+    onTabClick: Function;
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTab, onTabClick }) => {

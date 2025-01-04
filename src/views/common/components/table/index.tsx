@@ -5,7 +5,6 @@ import "./styles.css";
 interface TableRow {
   id?: string | number;
   guid?: string;
-  selectedIndex?: number;
   [key: string]: any;
 }
 
@@ -13,7 +12,7 @@ interface TableProps {
   header: string[];
   rows: TableRow[];
   selectedIndex: number;
-  rowClick: (index: number) => void;
+  rowClick: Function;
 }
 
 const Table: React.FC<TableProps> = ({ header, rows, selectedIndex, rowClick }) => {

@@ -1,5 +1,5 @@
 import { Api } from "src/models";
-import { convertItemsArrayToItemsTableArray, convertItemsArrayToItemsPropertiesArray } from "../items";
+import { convertItemsArrayToItemsTableArray, convertItemsArrayToItemsPropertiesArray } from "../items/mappers";
 
 describe('convertItemsArrayToItemsTableArray', () => {
     const validInput: Api.ItemsArray = [

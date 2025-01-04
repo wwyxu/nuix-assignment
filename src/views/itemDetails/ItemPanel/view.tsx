@@ -2,26 +2,26 @@ import React from "react";
 import ItemImage from "./ItemImage";
 import ItemProperties from "./itemProperties";
 import { ItemDetailsTabValue } from "src/constants";
+import { Models } from "src/models";
 
-const ItemsPanel = (props) => {
+interface ItemsPanelProps {
+    activeTab: Models.ItemTabValue;
+}
+
+const ItemsPanel: React.FC<ItemsPanelProps> = (props) => {
     const renderPanelBasedOnActiveTab = () => {
-        if (props.activeTab === ItemDetailsTabValue.Properties) {
-            return <ItemProperties />
+        switch (props.activeTab) {
+            case ItemDetailsTabValue.Properties:
+                return <ItemProperties />;
+            case ItemDetailsTabValue.Image:
+                return <ItemImage />;
+            default:
+                return null;
         }
-
-        if (props.activeTab === ItemDetailsTabValue.Image) {
-            return <ItemImage />
-        }
-
-        return null;
     }
 
     return (
-        <>
-            {
-                renderPanelBasedOnActiveTab()
-            }
-        </>
+        renderPanelBasedOnActiveTab()
     );
 }
 
