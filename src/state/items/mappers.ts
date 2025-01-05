@@ -47,12 +47,17 @@ export const updateSelectedItemTabs = (
     currentTabs: Models.SelectedItemTabs,
     itemGuid: string,
 ): Models.SelectedItemTabs => {
-    if (!currentTabs[itemGuid]) {
-        return {
-            ...currentTabs,
-            [itemGuid]: ItemDetailsTabValue.Properties
-        };
-    }
+    try {
+        if (!currentTabs[itemGuid]) {
+            return {
+                ...currentTabs,
+                [itemGuid]: ItemDetailsTabValue.Properties
+            };
+        }
 
-    return currentTabs;
+        return currentTabs;
+    } catch (error) {
+        console.error('Error updating selected item tabs:', error);
+        return {};
+    }
 }
