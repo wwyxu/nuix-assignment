@@ -4,7 +4,7 @@ import ItemProperties from './view';
 import data from 'src/ops-read';
 
 const mapStateToProps = (state: AppState) => ({
-    itemsTable: data.items.itemsTable(state),
+    itemsProperties: data.items.itemsProperties(state),
     selectedItemIndex: data.items.selectedItemIndex(state)
 });
 
